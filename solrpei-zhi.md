@@ -2,6 +2,66 @@
 
 ---
 
+环境搭建
+
+* 下载解压solr7.3.1
+* 配置solrconfig.xml，新增支持mysql导入的requestHandler
+  ` <requestHandler name="/dataimport" class="org.apache.solr.handler.dataimport.DataImportHandler">  `
+  `    <lst name="defaults">  `
+  `      <str name="config">db-data-config.xml</str>   `
+  `    </lst>     `
+  `  </requestHandler>`
+  * 新增mysql jar包路径
+  * `  <lib dir="${solr.install.dir:../../../..}/dist/" regex="mysql-connector-java-6.0.6.jar" />    `
+* 新建db-data-config.xml，配置mysql导入文件
+  * `<dataConfig>    `
+
+    `    <dataSource name="dataSource" driver="com.mysql.cj.jdbc.Driver" url="jdbc:mysql://localhost:3306/sunshine?serverTimeZone=UTC" user="root" password="016611sai" />    `
+
+    `    <document>    `
+
+    `        <entity name="article" pk="article_id" dataSource="dataSource" query="select * from sunshine_article"    `
+
+    `		 >    `
+
+    `            <field column="article_id" name="articleId" />    `
+
+    `            <field column="article_tag" name="articleTag" />    `
+
+    `            <field column="article_content" name="articleContent" />    `
+
+    `        </entity>    `
+
+    `    </document>    `
+
+    `</dataConfig>`
+
+* 配置自定义的field，名词与db-data-config.xml中的name保持一致
+  * `<field name="id" type="string" indexed="true" stored="true" required="true" multiValued="false" />`
+    `    <!-- docValues are enabled by default for long type so we don't need to index the version field  -->`
+    `	 <field name="articleId" type="plong" indexed="true" stored="true" required="true" multiValued="false"/>`
+    `	 <field name="articleTag" type="text_ik" indexed="true" stored="true"/>`
+    `	 <field name="articleContent" type="text_ik" indexed="true" stored="true"/>`
+
+    `    <field name="_version_" type="plong" indexed="false" stored="false"/>`
+    `    <field name="_root_" type="string" indexed="true" stored="false" docValues="false" />`
+    `    <field name="_text_" type="text_general" indexed="true" stored="false" multiValued="true"/>`
+  * 新增IK中文分词的fieldType
+  * `<fieldType name="text_ik" class="solr.TextField">`
+    `        <analyzer type="index">`
+    `            <tokenizer class="org.apache.lucene.analysis.ik.IKTokenizerFactory" useSmart="true"/>`
+    `        </analyzer>`
+    `        <analyzer type="query">`
+    `            <tokenizer class="org.apache.lucene.analysis.ik.IKTokenizerFactory" useSmart="true"/>`
+    `        </analyzer>`
+    `</fieldType>`
+* 拷贝jar包到\solr\solr-7.3.1\server\solr-webapp\webapp\WEB-INF\lib，包括
+  * mysql-connector-java-6.0.6.jar
+  * ik-analyzer-solr5-5.x.jar
+  * solr-analyzer-ik-5.1.0.jar
+
+---
+
 solr语法说明：
 
 | 参数 | 描述 |
