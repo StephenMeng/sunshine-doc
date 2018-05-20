@@ -1,5 +1,7 @@
 各版本solr下载地址[http://archive.apache.org/dist/lucene/solr/](http://archive.apache.org/dist/lucene/solr/)
 
+---
+
 solr语法说明：
 
 | 参数 | 描述 |
@@ -19,7 +21,7 @@ solr语法说明：
 | logParamsList | 指定哪些参数需要写入log, eg:logParamsList=q,fq |
 | echoParams | 指定响应头部包含哪些参数，取值为none/all/explicit\(默认值\) |
 
-
+---
 
 注意事项
 
