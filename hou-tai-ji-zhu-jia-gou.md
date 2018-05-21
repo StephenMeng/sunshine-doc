@@ -1,10 +1,10 @@
 * # 技术架构
 
-  * ## 后台 
+  * ## 后台
 
     * #### 服务器中间件：Tomcat
     * #### 数据库：Mysql
-    * #### 开发框架：springboot
+    * #### 开发框架：springboot+mybatis
     * #### 消息系统：kafka
     * #### 搜索引擎：solr
     * #### 缓存系统：redis
