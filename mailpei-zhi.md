@@ -1,22 +1,26 @@
 步骤一：添加maven依赖
 
-` <dependency>`
+`<dependency>`
 
-`            <groupId>org.apache.velocity</groupId>`
+`<groupId>org.apache.velocity</groupId>`
 
-`            <artifactId>velocity</artifactId>`
+`<artifactId>velocity</artifactId>`
 
-`            <version>1.7</version>`
+`<version>1.7</version>`
 
-`        </dependency>`
+`</dependency>`
 
-`        <dependency>`
+`<dependency>`
 
-`            <groupId>org.apache.velocity</groupId>`
+`<groupId>org.apache.velocity</groupId>`
 
-`            <artifactId>velocity-tools</artifactId>`
+`<artifactId>velocity-tools</artifactId>`
 
-`            <version>2.0</version>`
+`<version>2.0</version>`
 
-`        </dependency>`
+`</dependency>`
+
+步骤二：新增
+
+
 
