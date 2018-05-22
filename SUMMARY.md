@@ -7,4 +7,5 @@
 * [solr配置](solrpei-zhi.md)
 * [mail配置](mailpei-zhi.md)
 * [TIPS](tips.md)
+* [设计图](she-ji-tu.md)
 

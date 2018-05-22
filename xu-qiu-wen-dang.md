@@ -22,7 +22,6 @@ To Provide a Better environment For You
 
   * ##### 搜索文章
   * ##### 搜索师生
-
 * ##### 频道（channel）
 
   * 拟定频道信息可以动态增删，但保留两个固定频道，分别是首页和师生风采
@@ -100,6 +99,7 @@ To Provide a Better environment For You
 5. ### 博客系统
 
    1. ### 待定
+   2. ### 在线PPT、WORD展示
 6. ### 数据管理
 
 ## 
